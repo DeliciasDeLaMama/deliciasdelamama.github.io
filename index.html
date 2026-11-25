@@ -157,7 +157,7 @@ a{ color:inherit; }
 .hero-sub{ margin-top:20px; font-size:1.12rem; line-height:1.55; max-width:44ch; color:rgba(255,255,255,.88); }
 .hero-ctas{ display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
 .hero-photo{ position:relative; margin:0 calc(var(--gutter) * -1); }
-.hero-photo img{ width:100%; aspect-ratio:4/4.2; object-fit:cover; object-position:50% 0%; background:#FCE9EF; }
+.hero-photo img{ width:100%; aspect-ratio:4/4.2; object-fit:cover; object-position:50% 25%; background:#FCE9EF; display:block; }
 @media (min-width:900px){
   .hero .wrap{ grid-template-columns:1.05fr .95fr; gap:56px; padding-top:72px; }
   .hero-copy{ padding-bottom:110px; }
@@ -180,6 +180,16 @@ a{ color:inherit; }
 .section-head p{ margin-top:12px; color:var(--ink-soft); }
 @media (min-width:900px){ .section{ padding:96px 0; } }
 
+/* ===== Story ===== */
+.story{ background:var(--marmol); }
+.story-grid{ display:grid; gap:32px; grid-template-columns:1fr; }
+@media (min-width:820px){ .story-grid{ grid-template-columns:1fr 1fr; } }
+.story-panel{ margin:0; }
+.story-panel img{ width:100%; height:auto; border-radius:20px; border:6px solid #fff; box-shadow:0 0 0 1.5px var(--line); }
+.story-panel figcaption{ margin-top:14px; display:grid; gap:4px; }
+.story-panel strong{ font-family:var(--serif); font-weight:400; font-size:1.4rem; }
+.story-panel span{ color:var(--ink-soft); }
+
 /* ===== Menu ===== */
 .sample-note{
   border:2px dashed var(--rosa); background:var(--rosa-wash); color:var(--rosa-deep);
@@ -196,6 +206,14 @@ a{ color:inherit; }
 .dish-photo{ aspect-ratio:4/3; border-radius:18px; overflow:hidden; background-color:var(--marmol); }
 .dish-photo.dots{ background-color:var(--ink); }
 .dish-photo.illo img{ object-fit:contain; }
+.dish-photo{ position:relative; }
+.dish-photo .cartoon{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; background:#FCE9EF;
+  clip-path:circle(75% at 50% 50%); transition:clip-path 1.6s cubic-bezier(.65,0,.35,1);
+}
+.dish.revealed .dish-photo .cartoon{ clip-path:circle(0% at 50% 50%); }
+@media (hover:hover){ .dish:hover .dish-photo .cartoon, .dish:focus-within .dish-photo .cartoon{ clip-path:circle(0% at 50% 50%); } }
+@media (prefers-reduced-motion:reduce){ .dish-photo .cartoon{ display:none; } }
 .dish-photo img{ width:100%; height:100%; object-fit:cover; }
 /* until a real food photo exists, the dish gets a polka-dot label tile */
 .dish-photo.dots{
@@ -234,7 +252,7 @@ a{ color:inherit; }
 .about{ display:grid; gap:40px; grid-template-columns:1fr; align-items:center; }
 @media (min-width:900px){ .about{ grid-template-columns:.9fr 1.1fr; gap:72px; } }
 .about-photo img{
-  width:100%; aspect-ratio:4/4.4; object-fit:cover; object-position:35% 25%;
+  width:100%; aspect-ratio:4/4.4; object-fit:cover; object-position:50% 50%;
   border-radius:20px; border:8px solid #fff; box-shadow:0 0 0 1.5px var(--line);
 }
 .about-copy h2{ font-size:clamp(2rem, 4.6vw, 3rem); max-width:16ch; }
@@ -319,9 +337,40 @@ a{ color:inherit; }
         </div>
       </div>
       <figure class="hero-photo" style="margin-block:0">
-        <img src="assets/illustrations/familia-chef.svg" width="440" height="462" fetchpriority="high"
-             data-i18n-alt="hero_alt" alt="Illustration of la Mama in a chef's hat, rolling dough with her two granddaughters">
+        <picture>
+          <source srcset="assets/mama-familia.webp" type="image/webp">
+          <img src="assets/mama-familia.jpg" width="1000" height="1250" fetchpriority="high"
+               data-i18n-alt="hero_alt" alt="Illustration of la Mama in a chef's hat with her two granddaughters and a platter of empanadas, sopaipillas, Pan de Pascua, alfajores and cake">
+        </picture>
       </figure>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section story" aria-labelledby="story-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="story-title" data-i18n="story_title">Made as a family</h2>
+        <p data-i18n="story_sub">This is how your order comes to life.</p>
+      </div>
+      <div class="story-grid">
+        <figure class="story-panel">
+          <picture>
+            <source srcset="assets/story/empanadas.webp" type="image/webp">
+            <img src="assets/story/empanadas.jpg" width="1280" height="960" loading="lazy" data-i18n-alt="story1_alt"
+                 alt="Cartoon of la Mama and her granddaughter holding a plate of empanadas, half drawing and half real photo">
+          </picture>
+          <figcaption><strong data-i18n="story1_t">Empanadas, one by one</strong><span data-i18n="story1_d">Filled, folded and sealed by hand with her granddaughter. From the drawing to your table.</span></figcaption>
+        </figure>
+        <figure class="story-panel">
+          <picture>
+            <source srcset="assets/story/torta.webp" type="image/webp">
+            <img src="assets/story/torta.jpg" width="1280" height="960" loading="lazy" data-i18n-alt="story2_alt"
+                 alt="Cartoon of la Mama and her other granddaughter decorating a cake, half drawing and half real photo">
+          </picture>
+          <figcaption><strong data-i18n="story2_t">The cake, layer by layer</strong><span data-i18n="story2_d">Her other granddaughter adds the finishing touch.</span></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -367,9 +416,9 @@ a{ color:inherit; }
     <div class="wrap about">
       <figure class="about-photo" style="margin:0">
         <picture>
-          <source srcset="assets/mama-scarf.webp" type="image/webp">
-          <img src="assets/mama-scarf.jpg" width="1000" height="1158" loading="lazy"
-               data-i18n-alt="about_alt" alt="La Mama in her polka-dot headscarf, rolling dough at the counter">
+          <source srcset="assets/mama-kitchen.webp" type="image/webp">
+          <img src="assets/mama-kitchen.jpg" width="1000" height="1100" loading="lazy"
+               data-i18n-alt="about_alt" alt="Cartoon of la Mama in her polka-dot headscarf, rolling dough at the counter">
         </picture>
       </figure>
       <div class="about-copy">
@@ -428,7 +477,7 @@ a{ color:inherit; }
       <li id="foot-fb" hidden><a id="foot-fb-link" href="#" target="_blank" rel="noopener">Facebook</a></li>
     </ul>
     <p class="foot-legal">&copy; <span id="year">2026</span> Delicias de la Mama</p>
-    <p class="foot-credits">Menu photos are for reference. Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>; sopaipillas by Warko, <a href="https://commons.wikimedia.org/wiki/File:Sopaipillas_en_Curarrehue.JPG" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</p>
+    <p class="foot-credits">Menu photos are for reference. Some photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
   </div>
 </footer>
 
@@ -447,27 +496,35 @@ const CONFIG = {
 // photo: put the file in assets/menu/ and write its path, e.g. 'assets/menu/empanadas.jpg'
 // Leave photo empty ('') to show the polka-dot label instead.
 const MENU = [
-  { id:'empanadas-pino', price:null, photo:'assets/menu/empanadas-pino.jpg',
+  { id:'empanadas-pino', price:null, photo:'assets/menu/empanadas-pino.jpg', cartoon:'assets/cartoons/empanadas-pino.jpg',
     name:{ en:'Empanadas de pino', es:'Empanadas de pino' },
     desc:{ en:'Baked Chilean empanadas: beef, onion, egg, olive and raisins.', es:'Empanadas chilenas al horno: carne, cebolla, huevo, aceituna y pasas.' },
     unit:null },
-  { id:'empanadas-queso', price:null, photo:'assets/menu/empanadas-queso.jpg',
+  { id:'empanadas-queso', price:null, photo:'assets/menu/empanadas-queso.jpg', cartoon:'assets/cartoons/empanadas-queso.jpg',
     name:{ en:'Cheese empanadas', es:'Empanadas de queso' },
     desc:{ en:'Melted cheese in a crisp, hand-rolled pastry.', es:'Queso derretido en masa crujiente estirada a mano.' },
     unit:null },
-  { id:'sopaipillas', price:null, photo:'assets/menu/sopaipillas.jpg',
+  { id:'sopaipillas', price:null, photo:'assets/menu/sopaipillas.jpg', cartoon:'assets/cartoons/sopaipillas.jpg',
     name:{ en:'Sopaipillas', es:'Sopaipillas' },
     desc:{ en:'Pumpkin dough rounds, fried until crisp outside and soft inside.', es:'Masa de zapallo frita, crujiente por fuera y suave por dentro.' },
     unit:null },
-  { id:'pan-de-pascua', price:null, photo:'assets/menu/pan-de-pascua.jpg',
+  { id:'pan-de-pascua', price:null, photo:'assets/menu/pan-de-pascua.jpg', cartoon:'assets/cartoons/pan-de-pascua.jpg',
     name:{ en:'Pan de Pascua', es:'Pan de Pascua' },
     desc:{ en:'Chilean Christmas cake with dried fruit, nuts and spices.', es:'Queque navideño chileno con frutas confitadas, nueces y especias.' },
     unit:null },
-  { id:'dulces', price:null, photo:'assets/menu/dulces.jpg',
+  { id:'berlines', price:null, photo:'assets/menu/berlines.jpg', cartoon:'assets/cartoons/berlines.jpg',
+    name:{ en:'Berlines', es:'Berlines' },
+    desc:{ en:'Soft Chilean doughnuts filled with pastry cream, rolled in sugar.', es:'Berlines suaves rellenos de crema pastelera, pasados por azúcar.' },
+    unit:null },
+  { id:'calzones-rotos', price:null, photo:'assets/menu/calzones-rotos.jpg', cartoon:'assets/cartoons/calzones-rotos.jpg',
+    name:{ en:'Calzones rotos', es:'Calzones rotos' },
+    desc:{ en:'Crisp twisted pastries dusted with icing sugar.', es:'Masitas fritas y crujientes con azúcar flor.' },
+    unit:null },
+  { id:'dulces', price:null, photo:'assets/menu/dulces.jpg', cartoon:'assets/cartoons/dulces.jpg',
     name:{ en:'Chilean sweets', es:'Dulces chilenos' },
     desc:{ en:"Alfajores, chilenitos and more. Ask for this week's mix.", es:'Alfajores, chilenitos y más. Pregunta por la mezcla de la semana.' },
     unit:null },
-  { id:'tortas', price:null, photo:'assets/menu/tortas.jpg',
+  { id:'tortas', price:null, photo:'assets/menu/tortas.jpg', cartoon:'assets/cartoons/tortas.jpg',
     name:{ en:'Cakes to order', es:'Tortas por encargo' },
     desc:{ en:'Whole cakes such as mil hojas or tres leches. Order a few days ahead.', es:'Tortas enteras como mil hojas o tres leches. Encárgala con unos días de anticipación.' },
     unit:null }
@@ -482,7 +539,12 @@ const T = {
     hero_title:"Homemade Chilean food from la Mama's kitchen",
     hero_sub:'Empanadas, sopaipillas, Pan de Pascua and sweets made by hand in small batches in Auckland. See the menu and order on WhatsApp.',
     hero_cta:'See the menu', hero_ask:'Order on WhatsApp',
-    hero_alt:"Illustration of la Mama in a chef's hat, rolling dough with her two granddaughters",
+    hero_alt:"Illustration of la Mama in a chef's hat with her two granddaughters and a platter of empanadas, sopaipillas, Pan de Pascua, alfajores and cake",
+    story_title:'Made as a family', story_sub:'This is how your order comes to life.',
+    story1_t:'Empanadas, one by one', story1_d:'Filled, folded and sealed by hand with her granddaughter. From the drawing to your table.',
+    story1_alt:'Cartoon of la Mama and her granddaughter holding a plate of empanadas, half drawing and half real photo',
+    story2_t:'The cake, layer by layer', story2_d:'Her other granddaughter adds the finishing touch.',
+    story2_alt:'Cartoon of la Mama and her other granddaughter decorating a cake, half drawing and half real photo',
     menu_title:'The menu',
     menu_sub:'Tap "Order on WhatsApp" on any dish to ask for quantities, price and the day it can be ready. The message is already written.',
     sample_note:'Sample menu: dishes and prices are placeholders until la Mama confirms them.',
@@ -498,7 +560,7 @@ const T = {
     about_p1:'Everything starts on this counter. La Mama mixes the dough, rolls it out with her wooden rolling pin and makes each batch to order.',
     about_p2:'When you order from Delicias de la Mama, you are ordering from her kitchen and her recipes, not from a factory.',
     about_cta:'Say hello on WhatsApp',
-    about_alt:'La Mama in her polka-dot headscarf, rolling dough at the counter',
+    about_alt:'Cartoon of la Mama in her polka-dot headscarf, rolling dough at the counter',
     fb_title:'Follow la Mama on Facebook', fb_btn:'Facebook page', mp_btn:'See us on Marketplace',
     faq_title:'Questions',
     q1:'How far ahead should I order?', a1:'Order at least 1 day ahead so la Mama can plan the batch. For big orders, message her a few days before.',
@@ -515,7 +577,12 @@ const T = {
     hero_title:'Comida casera chilena, hecha en la cocina de la Mama',
     hero_sub:'Empanadas, sopaipillas, Pan de Pascua y dulces hechos a mano, en pequeñas tandas, en Auckland. Mira el menú y pide por WhatsApp.',
     hero_cta:'Ver el menú', hero_ask:'Pedir por WhatsApp',
-    hero_alt:'Ilustración de la Mama con gorro de chef, estirando masa con sus dos nietas',
+    hero_alt:'Ilustración de la Mama con gorro de chef y sus dos nietas, con una bandeja de empanadas, sopaipillas, Pan de Pascua, alfajores y torta',
+    story_title:'Hecho en familia', story_sub:'Así nace tu pedido.',
+    story1_t:'Empanadas, una por una', story1_d:'Rellenas, cerradas y selladas a mano con su nieta. Del dibujo a tu mesa.',
+    story1_alt:'Caricatura de la Mama y su nieta sosteniendo un plato de empanadas, mitad dibujo y mitad foto real',
+    story2_t:'La torta, capa por capa', story2_d:'Su otra nieta le pone el toque final.',
+    story2_alt:'Caricatura de la Mama y su otra nieta decorando una torta, mitad dibujo y mitad foto real',
     menu_title:'El menú',
     menu_sub:'Toca "Pedir por WhatsApp" en cualquier plato para preguntar cantidades, precio y el día que puede estar listo. El mensaje ya va escrito.',
     sample_note:'Menú de ejemplo: los platos y precios son provisorios hasta que la Mama los confirme.',
@@ -531,7 +598,7 @@ const T = {
     about_p1:'Todo empieza en este mesón. La Mama prepara la masa, la estira con su uslero de madera y hace cada tanda por pedido.',
     about_p2:'Cuando pides a Delicias de la Mama, pides de su cocina y sus recetas, no de una fábrica.',
     about_cta:'Saluda por WhatsApp',
-    about_alt:'La Mama con su pañuelo de lunares, estirando masa en el mesón',
+    about_alt:'Caricatura de la Mama con su pañuelo de lunares, estirando masa en el mesón',
     fb_title:'Sigue a la Mama en Facebook', fb_btn:'Página de Facebook', mp_btn:'Míranos en Marketplace',
     faq_title:'Preguntas',
     q1:'¿Con cuánta anticipación debo pedir?', a1:'Pide con al menos 1 día de anticipación para que la Mama pueda planificar la tanda. Para pedidos grandes, escríbele unos días antes.',
@@ -566,12 +633,12 @@ const T = {
       const msg = t('dish_msg').replace('{dish}', m.name[lang]);
       const illo = /\.svg$/i.test(m.photo || '');
       const photo = m.photo
-        ? `<div class="dish-photo${illo ? ' dots illo' : ''}"><img src="${esc(m.photo)}" alt="${esc(m.name[lang])}${illo ? ' (' + t('illo') + ')' : ''}" loading="lazy" width="${illo ? 400 : 800}" height="300"></div>`
+        ? `<div class="dish-photo${illo ? ' dots illo' : ''}"><img src="${esc(m.photo)}" alt="${esc(m.name[lang])}${illo ? ' (' + t('illo') + ')' : ''}" loading="lazy" width="${illo ? 400 : 800}" height="300">${m.cartoon ? `<img class="cartoon" src="${esc(m.cartoon)}" alt="" aria-hidden="true" loading="lazy" width="800" height="600">` : ''}</div>`
         : `<div class="dish-photo dots" aria-hidden="true">${esc(m.name[lang])}</div>`;
       const dd = CONFIG.doordashUrl
         ? `<a class="btn btn--dd" href="${esc(CONFIG.doordashUrl)}" target="_blank" rel="noopener">${t('dish_dd')}</a>` : '';
       return `
-      <li class="dish">
+      <li class="dish" data-id="${m.id}">
         ${photo}
         <div class="dish-head">
           <h3 class="dish-name">${esc(m.name[lang])}</h3>
@@ -586,6 +653,32 @@ const T = {
         </div>
       </li>`;
     }).join('');
+    watchDishes();
+  }
+
+  /* cartoon <-> real photo: while a dish is on screen it shows la Mama's cartoon, slowly wipes to the
+     real photo, then back to the cartoon, and so on (cards out of step). Mouse over always shows the photo (CSS :hover). */
+  const CARTOON_MS = 3600, PHOTO_MS = 4600;          // includes the 1.6s wipe
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const loops = new Map();
+  function startLoop(li){
+    if (loops.has(li)) return;
+    const tick = () => loops.set(li, setTimeout(tick, li.classList.toggle('revealed') ? PHOTO_MS : CARTOON_MS));
+    loops.set(li, setTimeout(tick, 1400 + (li.dataset.n % 3) * 1100));
+  }
+  function stopLoop(li){ clearTimeout(loops.get(li)); loops.delete(li); li.classList.remove('revealed'); }
+  const io = !calm && 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(e => { const li = e.target.closest('.dish'); e.isIntersecting ? startLoop(li) : stopLoop(li); });
+  }, { threshold: .5 }) : null;
+  function watchDishes(){
+    loops.forEach(clearTimeout); loops.clear();
+    if (io) io.disconnect();
+    $$('.dish').forEach((li, i) => {
+      const pic = li.querySelector('.dish-photo');
+      if (!pic || !li.querySelector('.cartoon')) return;
+      li.dataset.n = i;
+      if (io) io.observe(pic);
+    });
   }
 
   function applyLang(){
