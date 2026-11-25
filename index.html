@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Delicias de la Mama | Homemade Latin food in Auckland</title>
-<meta name="description" content="Empanadas, bread and sweets made by hand by la Mama in Auckland. See the menu and order on WhatsApp.">
+<title>Delicias de la Mama | Homemade Chilean food in Auckland</title>
+<meta name="description" content="Empanadas, sopaipillas, Pan de Pascua and sweets made by hand by la Mama in Auckland. See the menu and order on WhatsApp.">
 <link rel="canonical" href="https://deliciasdelamama.co.nz/">
 <meta name="theme-color" content="#1C2452">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://deliciasdelamama.co.nz/">
 <meta property="og:title" content="Delicias de la Mama">
-<meta property="og:description" content="Homemade Latin food, made by hand in Auckland. Order on WhatsApp.">
+<meta property="og:description" content="Homemade Chilean food, made by hand in Auckland. Order on WhatsApp.">
 <meta property="og:image" content="https://deliciasdelamama.co.nz/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -32,7 +32,7 @@
   "image": "https://deliciasdelamama.co.nz/assets/og-image.jpg",
   "telephone": "+64 21 821 450",
   "email": "deliciasdelamamanz@gmail.com",
-  "servesCuisine": "Latin American",
+  "servesCuisine": "Chilean",
   "areaServed": "Auckland",
   "address": { "@type": "PostalAddress", "addressLocality": "Auckland", "addressCountry": "NZ" }
 }
@@ -137,14 +137,16 @@ a{ color:inherit; }
 .lang button[aria-pressed="true"]{ background:var(--ink); color:#fff; }
 .top .btn{ min-height:42px; padding:0 16px; font-size:.92rem; }
 .top .btn svg{ width:20px; height:20px; }
+@media (max-width:720px){
+  .top .btn .wa-label{ display:none; }
+  .top .btn{ padding:0; width:42px; }
+}
 @media (max-width:420px){
   .brand{ gap:8px; }
   .brand-mark{ width:26px; height:26px; }
   .brand-name{ font-size:1rem; }
   .top-actions{ gap:6px; }
   .lang button{ padding:5px 8px; }
-  .top .btn .wa-label{ display:none; }
-  .top .btn{ padding:0; width:42px; }
 }
 
 /* ===== Hero ===== */
@@ -155,12 +157,12 @@ a{ color:inherit; }
 .hero-sub{ margin-top:20px; font-size:1.12rem; line-height:1.55; max-width:44ch; color:rgba(255,255,255,.88); }
 .hero-ctas{ display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
 .hero-photo{ position:relative; margin:0 calc(var(--gutter) * -1); }
-.hero-photo img{ width:100%; aspect-ratio:4/4.3; object-fit:cover; object-position:30% 20%; }
+.hero-photo img{ width:100%; aspect-ratio:4/4.2; object-fit:cover; object-position:50% 0%; background:#FCE9EF; }
 @media (min-width:900px){
   .hero .wrap{ grid-template-columns:1.05fr .95fr; gap:56px; padding-top:72px; }
   .hero-copy{ padding-bottom:110px; }
   .hero-photo{ margin:0 0 -1px; align-self:end; }
-  .hero-photo img{ aspect-ratio:4/4.6; border-radius:220px 220px 0 0; border:8px solid #fff; border-bottom:0; }
+  .hero-photo img{ aspect-ratio:440/462; border-radius:220px 220px 0 0; border:8px solid #fff; border-bottom:0; }
 }
 @media (prefers-reduced-motion:no-preference){
   .hero-copy > *{ animation:rise .7s cubic-bezier(.2,.7,.2,1) both; }
@@ -193,6 +195,7 @@ a{ color:inherit; }
 .dish{ display:flex; flex-direction:column; }
 .dish-photo{ aspect-ratio:4/3; border-radius:18px; overflow:hidden; background-color:var(--marmol); }
 .dish-photo.dots{ background-color:var(--ink); }
+.dish-photo.illo img{ object-fit:contain; }
 .dish-photo img{ width:100%; height:100%; object-fit:cover; }
 /* until a real food photo exists, the dish gets a polka-dot label tile */
 .dish-photo.dots{
@@ -270,6 +273,7 @@ a{ color:inherit; }
 .foot-tag{ margin-top:10px; }
 .foot ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
 .foot a{ color:#fff; text-decoration-color:rgba(255,255,255,.4); text-underline-offset:3px; }
+.foot-credits{ grid-column:1 / -1; font-size:.78rem; color:rgba(255,255,255,.5); margin-top:-14px; }
 .foot-legal{ grid-column:1 / -1; font-size:.85rem; color:rgba(255,255,255,.6); border-top:1px solid rgba(255,255,255,.15); padding-top:20px; }
 </style>
 </head>
@@ -305,8 +309,8 @@ a{ color:inherit; }
   <section class="hero dots">
     <div class="wrap">
       <div class="hero-copy">
-        <h1 data-i18n="hero_title">Homemade Latin food from la Mama's kitchen</h1>
-        <p class="hero-sub" data-i18n="hero_sub">Empanadas, bread and sweets made by hand in small batches in Auckland. See the menu and order on WhatsApp.</p>
+        <h1 data-i18n="hero_title">Homemade Chilean food from la Mama's kitchen</h1>
+        <p class="hero-sub" data-i18n="hero_sub">Empanadas, sopaipillas, Pan de Pascua and sweets made by hand in small batches in Auckland. See the menu and order on WhatsApp.</p>
         <div class="hero-ctas">
           <a class="btn btn--light" href="#menu" data-i18n="hero_cta">See the menu</a>
           <a class="btn btn--ghost js-ask" href="#" target="_blank" rel="noopener">
@@ -315,11 +319,8 @@ a{ color:inherit; }
         </div>
       </div>
       <figure class="hero-photo" style="margin-block:0">
-        <picture>
-          <source srcset="assets/mama-hero.webp" type="image/webp">
-          <img src="assets/mama-hero.jpg" width="1100" height="1252" fetchpriority="high"
-               data-i18n-alt="hero_alt" alt="La Mama smiling as she rolls dough with a wooden rolling pin in her kitchen">
-        </picture>
+        <img src="assets/illustrations/familia-chef.svg" width="440" height="462" fetchpriority="high"
+             data-i18n-alt="hero_alt" alt="Illustration of la Mama in a chef's hat, rolling dough with her two granddaughters">
       </figure>
     </div>
   </section>
@@ -329,13 +330,13 @@ a{ color:inherit; }
     <div class="wrap">
       <div class="section-head">
         <h2 id="menu-title" data-i18n="menu_title">The menu</h2>
-        <p data-i18n="menu_sub">Prices in NZD. Tap "Order on WhatsApp" on any dish and the message is already written.</p>
+        <p data-i18n="menu_sub">Tap "Order on WhatsApp" on any dish to ask for quantities, price and the day it can be ready. The message is already written.</p>
         <p class="dd-row js-dd" hidden>
           <span data-i18n="dd_row">Prefer an app?</span>
           <a class="btn btn--dd js-dd-link" href="#" target="_blank" rel="noopener" data-i18n="dd_btn">Order on DoorDash</a>
         </p>
       </div>
-      <p class="sample-note" id="sample-note" hidden data-i18n="sample_note">Sample menu: dishes, photos and prices are placeholders until la Mama confirms them.</p>
+      <p class="sample-note" id="sample-note" hidden data-i18n="sample_note">Sample menu: dishes and prices are placeholders until la Mama confirms them.</p>
       <ul class="dishes" id="dishes"></ul>
     </div>
   </section>
@@ -418,7 +419,7 @@ a{ color:inherit; }
   <div class="wrap">
     <div>
       <span class="brand-name">Delicias de la Mama</span>
-      <p class="foot-tag" data-i18n="foot_tag">Homemade Latin food in Auckland, New Zealand.</p>
+      <p class="foot-tag" data-i18n="foot_tag">Homemade Chilean food in Auckland, New Zealand.</p>
     </div>
     <ul>
       <li><a class="js-ask" href="#" target="_blank" rel="noopener">WhatsApp +64 21 821 450</a></li>
@@ -427,6 +428,7 @@ a{ color:inherit; }
       <li id="foot-fb" hidden><a id="foot-fb-link" href="#" target="_blank" rel="noopener">Facebook</a></li>
     </ul>
     <p class="foot-legal">&copy; <span id="year">2026</span> Delicias de la Mama</p>
+    <p class="foot-credits">Menu photos are for reference. Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>; sopaipillas by Warko, <a href="https://commons.wikimedia.org/wiki/File:Sopaipillas_en_Curarrehue.JPG" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</p>
   </div>
 </footer>
 
@@ -439,32 +441,36 @@ const CONFIG = {
   doordashUrl: '',               // paste the DoorDash store link when approved: buttons appear on their own
   facebookUrl: '',               // paste the Facebook page link when it exists
   marketplaceUrl: '',            // paste the Marketplace profile link when it exists
-  sampleMenu: true               // set to false once the real dishes, photos and prices are in
+  sampleMenu: false              // set to false once the real dishes, photos and prices are in
 };
 
 // photo: put the file in assets/menu/ and write its path, e.g. 'assets/menu/empanadas.jpg'
 // Leave photo empty ('') to show the polka-dot label instead.
 const MENU = [
-  { id:'emp-carne', price:30, photo:'',
-    name:{ en:'Beef empanadas', es:'Empanadas de carne' },
-    desc:{ en:'Seasoned beef and onion, baked until golden.', es:'Carne sazonada con cebolla, horneadas hasta dorar.' },
-    unit:{ en:'Pack of 6', es:'Pack de 6' } },
-  { id:'emp-queso', price:27, photo:'',
+  { id:'empanadas-pino', price:null, photo:'assets/menu/empanadas-pino.jpg',
+    name:{ en:'Empanadas de pino', es:'Empanadas de pino' },
+    desc:{ en:'Baked Chilean empanadas: beef, onion, egg, olive and raisins.', es:'Empanadas chilenas al horno: carne, cebolla, huevo, aceituna y pasas.' },
+    unit:null },
+  { id:'empanadas-queso', price:null, photo:'assets/menu/empanadas-queso.jpg',
     name:{ en:'Cheese empanadas', es:'Empanadas de queso' },
     desc:{ en:'Melted cheese in a crisp, hand-rolled pastry.', es:'Queso derretido en masa crujiente estirada a mano.' },
-    unit:{ en:'Pack of 6', es:'Pack de 6' } },
-  { id:'pan', price:12, photo:'',
-    name:{ en:'Homemade bread rolls', es:'Pan casero' },
-    desc:{ en:'Soft rolls, shaped by hand.', es:'Pancitos suaves formados a mano.' },
-    unit:{ en:'Bag of 10', es:'Bolsa de 10' } },
-  { id:'alfajores', price:15, photo:'',
-    name:{ en:'Alfajores', es:'Alfajores' },
-    desc:{ en:'Soft shortbread biscuits filled with dulce de leche.', es:'Galletas suaves rellenas de dulce de leche.' },
-    unit:{ en:'Box of 6', es:'Caja de 6' } },
-  { id:'tres-leches', price:45, photo:'',
-    name:{ en:'Tres leches cake', es:'Torta tres leches' },
-    desc:{ en:'Sponge soaked in three kinds of milk, served cold.', es:'Bizcocho bañado en tres leches, para servir frío.' },
-    unit:{ en:'Whole cake, serves 10', es:'Torta entera, 10 porciones' } }
+    unit:null },
+  { id:'sopaipillas', price:null, photo:'assets/menu/sopaipillas.jpg',
+    name:{ en:'Sopaipillas', es:'Sopaipillas' },
+    desc:{ en:'Pumpkin dough rounds, fried until crisp outside and soft inside.', es:'Masa de zapallo frita, crujiente por fuera y suave por dentro.' },
+    unit:null },
+  { id:'pan-de-pascua', price:null, photo:'assets/menu/pan-de-pascua.jpg',
+    name:{ en:'Pan de Pascua', es:'Pan de Pascua' },
+    desc:{ en:'Chilean Christmas cake with dried fruit, nuts and spices.', es:'Queque navideño chileno con frutas confitadas, nueces y especias.' },
+    unit:null },
+  { id:'dulces', price:null, photo:'assets/menu/dulces.jpg',
+    name:{ en:'Chilean sweets', es:'Dulces chilenos' },
+    desc:{ en:"Alfajores, chilenitos and more. Ask for this week's mix.", es:'Alfajores, chilenitos y más. Pregunta por la mezcla de la semana.' },
+    unit:null },
+  { id:'tortas', price:null, photo:'assets/menu/tortas.jpg',
+    name:{ en:'Cakes to order', es:'Tortas por encargo' },
+    desc:{ en:'Whole cakes such as mil hojas or tres leches. Order a few days ahead.', es:'Tortas enteras como mil hojas o tres leches. Encárgala con unos días de anticipación.' },
+    unit:null }
 ];
 
 /* =========================================================
@@ -473,15 +479,15 @@ const MENU = [
 const T = {
   en:{
     skip:'Skip to the menu',
-    hero_title:"Homemade Latin food from la Mama's kitchen",
-    hero_sub:'Empanadas, bread and sweets made by hand in small batches in Auckland. See the menu and order on WhatsApp.',
+    hero_title:"Homemade Chilean food from la Mama's kitchen",
+    hero_sub:'Empanadas, sopaipillas, Pan de Pascua and sweets made by hand in small batches in Auckland. See the menu and order on WhatsApp.',
     hero_cta:'See the menu', hero_ask:'Order on WhatsApp',
-    hero_alt:'La Mama smiling as she rolls dough with a wooden rolling pin in her kitchen',
+    hero_alt:"Illustration of la Mama in a chef's hat, rolling dough with her two granddaughters",
     menu_title:'The menu',
-    menu_sub:'Prices in NZD. Tap "Order on WhatsApp" on any dish and the message is already written.',
-    sample_note:'Sample menu: dishes, photos and prices are placeholders until la Mama confirms them.',
-    dish_wa:'Order on WhatsApp', dish_dd:'DoorDash',
-    dish_msg:"Hi! I'd like to order: {dish} ({unit}). Which day could it be ready?",
+    menu_sub:'Tap "Order on WhatsApp" on any dish to ask for quantities, price and the day it can be ready. The message is already written.',
+    sample_note:'Sample menu: dishes and prices are placeholders until la Mama confirms them.',
+    dish_wa:'Order on WhatsApp', dish_dd:'DoorDash', illo:'illustration',
+    dish_msg:"Hi! I'd like to order {dish}. What quantities do you have, what is the price, and which day could it be ready?",
     dd_row:'Prefer an app?', dd_btn:'Order on DoorDash',
     steps_title:'How to order',
     s1_t:'Choose', s1_d:"Look through the menu and pick what you'd like.",
@@ -501,20 +507,20 @@ const T = {
     a2_dd:'Yes, through DoorDash: order in the app and a driver brings it to your door. You can also ask la Mama on WhatsApp.',
     q3:'How do I pay?', a3:'La Mama tells you how to pay when she confirms your order on WhatsApp.',
     q4:'What about allergies?', a4:'Tell la Mama in your WhatsApp message and she will tell you exactly what goes into each dish.',
-    foot_tag:'Homemade Latin food in Auckland, New Zealand.',
+    foot_tag:'Homemade Chilean food in Auckland, New Zealand.',
     ask_msg:'Hi! I have a question for Delicias de la Mama.'
   },
   es:{
     skip:'Ir al menú',
-    hero_title:'Comida casera latina, hecha en la cocina de la Mama',
-    hero_sub:'Empanadas, pan y dulces hechos a mano, en pequeñas tandas, en Auckland. Mira el menú y pide por WhatsApp.',
+    hero_title:'Comida casera chilena, hecha en la cocina de la Mama',
+    hero_sub:'Empanadas, sopaipillas, Pan de Pascua y dulces hechos a mano, en pequeñas tandas, en Auckland. Mira el menú y pide por WhatsApp.',
     hero_cta:'Ver el menú', hero_ask:'Pedir por WhatsApp',
-    hero_alt:'La Mama sonriendo mientras estira la masa con un uslero de madera en su cocina',
+    hero_alt:'Ilustración de la Mama con gorro de chef, estirando masa con sus dos nietas',
     menu_title:'El menú',
-    menu_sub:'Precios en NZD. Toca "Pedir por WhatsApp" en cualquier plato y el mensaje ya va escrito.',
-    sample_note:'Menú de ejemplo: los platos, fotos y precios son provisorios hasta que la Mama los confirme.',
-    dish_wa:'Pedir por WhatsApp', dish_dd:'DoorDash',
-    dish_msg:'¡Hola! Quiero pedir: {dish} ({unit}). ¿Para qué día estaría listo?',
+    menu_sub:'Toca "Pedir por WhatsApp" en cualquier plato para preguntar cantidades, precio y el día que puede estar listo. El mensaje ya va escrito.',
+    sample_note:'Menú de ejemplo: los platos y precios son provisorios hasta que la Mama los confirme.',
+    dish_wa:'Pedir por WhatsApp', dish_dd:'DoorDash', illo:'ilustración',
+    dish_msg:'¡Hola! Quiero pedir {dish}. ¿Qué cantidades tienen, cuál es el precio y para qué día estaría listo?',
     dd_row:'¿Prefieres una app?', dd_btn:'Pedir en DoorDash',
     steps_title:'Cómo pedir',
     s1_t:'Elige', s1_d:'Mira el menú y elige lo que quieras.',
@@ -534,7 +540,7 @@ const T = {
     a2_dd:'Sí, por DoorDash: pide en la app y un repartidor te lo lleva a la puerta. También puedes preguntarle a la Mama por WhatsApp.',
     q3:'¿Cómo pago?', a3:'La Mama te dice cómo pagar cuando confirma tu pedido por WhatsApp.',
     q4:'¿Y si tengo alergias?', a4:'Cuéntale a la Mama en tu mensaje de WhatsApp y ella te dirá exactamente qué lleva cada plato.',
-    foot_tag:'Comida casera latina en Auckland, Nueva Zelanda.',
+    foot_tag:'Comida casera chilena en Auckland, Nueva Zelanda.',
     ask_msg:'¡Hola! Tengo una consulta para Delicias de la Mama.'
   }
 };
@@ -557,9 +563,10 @@ const T = {
 
   function renderMenu(){
     $('#dishes').innerHTML = MENU.map(m => {
-      const msg = t('dish_msg').replace('{dish}', m.name[lang]).replace('{unit}', m.unit[lang]);
+      const msg = t('dish_msg').replace('{dish}', m.name[lang]);
+      const illo = /\.svg$/i.test(m.photo || '');
       const photo = m.photo
-        ? `<div class="dish-photo"><img src="${esc(m.photo)}" alt="${esc(m.name[lang])}" loading="lazy" width="800" height="600"></div>`
+        ? `<div class="dish-photo${illo ? ' dots illo' : ''}"><img src="${esc(m.photo)}" alt="${esc(m.name[lang])}${illo ? ' (' + t('illo') + ')' : ''}" loading="lazy" width="${illo ? 400 : 800}" height="300"></div>`
         : `<div class="dish-photo dots" aria-hidden="true">${esc(m.name[lang])}</div>`;
       const dd = CONFIG.doordashUrl
         ? `<a class="btn btn--dd" href="${esc(CONFIG.doordashUrl)}" target="_blank" rel="noopener">${t('dish_dd')}</a>` : '';
@@ -568,10 +575,9 @@ const T = {
         ${photo}
         <div class="dish-head">
           <h3 class="dish-name">${esc(m.name[lang])}</h3>
-          <span class="leader" aria-hidden="true"></span>
-          <span class="dish-price">${money(m.price)}</span>
+          ${m.price ? `<span class="leader" aria-hidden="true"></span><span class="dish-price">${money(m.price)}</span>` : ''}
         </div>
-        <p class="dish-desc">${esc(m.desc[lang])}<span class="dish-unit">${esc(m.unit[lang])}</span></p>
+        <p class="dish-desc">${esc(m.desc[lang])}${m.unit ? `<span class="dish-unit">${esc(m.unit[lang])}</span>` : ''}</p>
         <div class="dish-actions">
           <a class="btn btn--wa" href="${waLink(msg)}" target="_blank" rel="noopener">
             <svg aria-hidden="true"><use href="#i-wa"/></svg>${t('dish_wa')}
