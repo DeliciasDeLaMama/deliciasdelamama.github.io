@@ -181,14 +181,8 @@ a{ color:inherit; }
 @media (min-width:900px){ .section{ padding:96px 0; } }
 
 /* ===== Story ===== */
-.story{ background:var(--marmol); }
-.story-grid{ display:grid; gap:32px; grid-template-columns:1fr; }
-@media (min-width:820px){ .story-grid{ grid-template-columns:1fr 1fr; } }
-.story-panel{ margin:0; }
-.story-panel img{ width:100%; height:auto; border-radius:20px; border:6px solid #fff; box-shadow:0 0 0 1.5px var(--line); }
-.story-panel figcaption{ margin-top:14px; display:grid; gap:4px; }
-.story-panel strong{ font-family:var(--serif); font-weight:400; font-size:1.4rem; }
-.story-panel span{ color:var(--ink-soft); }
+.story{ background:var(--marmol); padding:44px 0; text-align:center; }
+.story h2{ font-size:clamp(2rem, 4.6vw, 3rem); }
 
 /* ===== Menu ===== */
 .sample-note{
@@ -347,30 +341,9 @@ a{ color:inherit; }
   </section>
 
   <!-- STORY -->
-  <section class="section story" aria-labelledby="story-title">
+  <section class="story" aria-labelledby="story-title">
     <div class="wrap">
-      <div class="section-head">
-        <h2 id="story-title" data-i18n="story_title">Made as a family</h2>
-        <p data-i18n="story_sub">This is how your order comes to life.</p>
-      </div>
-      <div class="story-grid">
-        <figure class="story-panel">
-          <picture>
-            <source srcset="assets/story/empanadas.webp" type="image/webp">
-            <img src="assets/story/empanadas.jpg" width="1280" height="960" loading="lazy" data-i18n-alt="story1_alt"
-                 alt="Cartoon of la Mama and her granddaughter holding a plate of empanadas, half drawing and half real photo">
-          </picture>
-          <figcaption><strong data-i18n="story1_t">Empanadas, one by one</strong><span data-i18n="story1_d">Filled, folded and sealed by hand with her granddaughter. From the drawing to your table.</span></figcaption>
-        </figure>
-        <figure class="story-panel">
-          <picture>
-            <source srcset="assets/story/torta.webp" type="image/webp">
-            <img src="assets/story/torta.jpg" width="1280" height="960" loading="lazy" data-i18n-alt="story2_alt"
-                 alt="Cartoon of la Mama and her other granddaughter decorating a cake, half drawing and half real photo">
-          </picture>
-          <figcaption><strong data-i18n="story2_t">The cake, layer by layer</strong><span data-i18n="story2_d">Her other granddaughter adds the finishing touch.</span></figcaption>
-        </figure>
-      </div>
+      <h2 id="story-title" data-i18n="story_title">Made as a family</h2>
     </div>
   </section>
 
@@ -540,11 +513,7 @@ const T = {
     hero_sub:'Empanadas, sopaipillas, Pan de Pascua and sweets made by hand in small batches in Auckland. See the menu and order on WhatsApp.',
     hero_cta:'See the menu', hero_ask:'Order on WhatsApp',
     hero_alt:"Illustration of la Mama in a chef's hat with her two granddaughters and a platter of empanadas, sopaipillas, Pan de Pascua, alfajores and cake",
-    story_title:'Made as a family', story_sub:'This is how your order comes to life.',
-    story1_t:'Empanadas, one by one', story1_d:'Filled, folded and sealed by hand with her granddaughter. From the drawing to your table.',
-    story1_alt:'Cartoon of la Mama and her granddaughter holding a plate of empanadas, half drawing and half real photo',
-    story2_t:'The cake, layer by layer', story2_d:'Her other granddaughter adds the finishing touch.',
-    story2_alt:'Cartoon of la Mama and her other granddaughter decorating a cake, half drawing and half real photo',
+    story_title:'Made as a family',
     menu_title:'The menu',
     menu_sub:'Tap "Order on WhatsApp" on any dish to ask for quantities, price and the day it can be ready. The message is already written.',
     sample_note:'Sample menu: dishes and prices are placeholders until la Mama confirms them.',
@@ -578,11 +547,7 @@ const T = {
     hero_sub:'Empanadas, sopaipillas, Pan de Pascua y dulces hechos a mano, en pequeñas tandas, en Auckland. Mira el menú y pide por WhatsApp.',
     hero_cta:'Ver el menú', hero_ask:'Pedir por WhatsApp',
     hero_alt:'Ilustración de la Mama con gorro de chef y sus dos nietas, con una bandeja de empanadas, sopaipillas, Pan de Pascua, alfajores y torta',
-    story_title:'Hecho en familia', story_sub:'Así nace tu pedido.',
-    story1_t:'Empanadas, una por una', story1_d:'Rellenas, cerradas y selladas a mano con su nieta. Del dibujo a tu mesa.',
-    story1_alt:'Caricatura de la Mama y su nieta sosteniendo un plato de empanadas, mitad dibujo y mitad foto real',
-    story2_t:'La torta, capa por capa', story2_d:'Su otra nieta le pone el toque final.',
-    story2_alt:'Caricatura de la Mama y su otra nieta decorando una torta, mitad dibujo y mitad foto real',
+    story_title:'Hecho en familia',
     menu_title:'El menú',
     menu_sub:'Toca "Pedir por WhatsApp" en cualquier plato para preguntar cantidades, precio y el día que puede estar listo. El mensaje ya va escrito.',
     sample_note:'Menú de ejemplo: los platos y precios son provisorios hasta que la Mama los confirme.',
